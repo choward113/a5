@@ -1,1 +1,1 @@
-# a5
+I thought this assignment was interesting since this was the first assignment that I finished before the last day. I don't think this was easier than any of the other assignments, but I think my time management got better. To me, the infix conversion was the most difficult part to do. In particular, figuring out how to manage the parentheses was difficult, along with figuring out how to make the exponents be right associative.

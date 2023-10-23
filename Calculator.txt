@@ -1,0 +1,57 @@
+import java.util.ArrayDeque;
+import java.util.NoSuchElementException;
+import java.lang.RuntimeException;
+
+/**
+ * Calculator for equations given in infix format.
+ * @author Camille Howard
+ * @version October 20, 2023. CSC 210.
+ */
+public class Calculator {
+    /** Takes in ArrayDeque as a queue and reformats it to be in postfix format
+    * @param args The string to convert
+    * @return the queue
+    */
+    private ArrayDeque<Object> shuntYard(String[] args) {
+        ArrayDeque<Object> queue = Tokenizer.main(args); //the original queue
+        ArrayDeque<Object> output = new ArrayDeque<Object>(args.length);
+        ArrayDeque<Object> stack = new ArrayDeque<Object>(args.length); //for operators
+        for (Object token : queue) { //can't modify queue
+            if (token instanceof Double) {
+                output.addLast(token);
+            }
+            if (token instanceof Character) { //if token is an operator
+                System.out.println("table");
+                while (stack.getFirst() instanceof Character) {
+
+                }
+                stack.addFirst(token);
+            }
+        }
+        //stack = converted queue
+        System.out.println(queue.toString());
+        return output;
+    }
+    
+    /** Gets the priority of a certain operator */
+    private int findPriority(Object op) {
+        return 0;
+    }
+    public static void main(String[] args) {
+        PostFix postfix = new PostFix();
+        Calculator infix = new Calculator();
+        
+        try {
+            infix.shuntYard(args);
+            //Double result = postfix.calculate(infix.shuntYard(args));
+            //System.out.println(result);
+        } catch (NullPointerException e) {
+            System.err.println("Error: No equation given."); 
+        } catch (NoSuchElementException e) {
+            System.err.println("Error: Equation could not be completed. Too many operators.");
+        } catch (RuntimeException e) {
+            System.err.println(e);
+        }
+    }
+    
+}
